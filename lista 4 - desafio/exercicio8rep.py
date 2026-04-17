@@ -1,42 +1,47 @@
-# exercicio 8 lista repetiçao
+#exercicio 8 lista repeticao
 
-idades = []
-alturas = []
+class Aluno:
+    def __init__(self, idade, altura):
+        self.idade = idade
+        self.altura = altura
 
-#entrada de dados
-for i in range(45):
-    idade = int(input("Digite a idade: "))
-    altura = float(input("Digite a altura: "))
-    
-    idades.append(idade)
-    alturas.append(altura)
 
-#idade média com altura < 1.70
+# criando lista com 45 alunos (exemplo fixo)
+alunos = [
+    Aluno(18, 1.65), Aluno(22, 1.72), Aluno(19, 1.68),
+    Aluno(25, 1.80), Aluno(21, 1.75)
+] * 9  
+
+
+# idade média dos alunos com altura < 1.70
 soma_idade = 0
 cont1 = 0
 
-for i in range(45):
-    if alturas[i] < 1.70:
-        soma_idade += idades[i]
+for aluno in alunos:
+    if aluno.altura < 1.70:
+        soma_idade += aluno.idade
         cont1 += 1
 
 if cont1 > 0:
     media_idade = soma_idade / cont1
-    print("Idade média (altura < 1.70):", media_idade)
 else:
-    print("Nenhum aluno com altura < 1.70")
+    media_idade = 0
 
-#altura média com idade > 20
+
+#altura média dos alunos com idade > 20
 soma_altura = 0
 cont2 = 0
 
-for i in range(45):
-    if idades[i] > 20:
-        soma_altura += alturas[i]
+for aluno in alunos:
+    if aluno.idade > 20:
+        soma_altura += aluno.altura
         cont2 += 1
 
 if cont2 > 0:
     media_altura = soma_altura / cont2
-    print("Altura média (idade > 20):", media_altura)
 else:
-    print("Nenhum aluno com mais de 20 anos")
+    media_altura = 0
+
+
+print("Média das idades (altura < 1.70):", media_idade)
+print("Média das alturas (idade > 20):", media_altura)

@@ -1,13 +1,15 @@
-# exercicio 11 lista repetiçao
+#exercicio 11 lista repeticao
 
-termo = 3
-pg = []
-soma = 0
+def soma_pg():
+    termo = 3
+    soma = 0
 
-while termo <= 6561:
-    pg.append(termo)
-    soma += termo
-    termo *= 3
+    while termo <= 6561:
+        soma += termo
+        termo *= 3  # gera o próximo termo
 
-print("Termos:", pg)
-print("Soma:", soma)
+    return soma
+
+
+resultado = soma_pg()
+print("Soma dos termos:", resultado)
